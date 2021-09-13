@@ -121,6 +121,7 @@ https://rubyhan-w251-hw3.s3.ca-central-1.amazonaws.com/
 - **Sample Image:**
 
 https://rubyhan-w251-hw3.s3.ca-central-1.amazonaws.com/face_10.png
+
 ![image](./face_10.png)
 
 - **AWS S3 console screenshot:**
