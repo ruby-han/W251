@@ -116,11 +116,16 @@ docker run --network=host -d rubyhan/processor-ec2:ubuntu
 ## Face Image Example
 - **S3 bucket:** 
 
-https://rubyhan-w251-hw3.s3.ca-central-1.amazonaws.com/face_10.png
+https://rubyhan-w251-hw3.s3.ca-central-1.amazonaws.com/
 
 - **Sample Image:**
 
+https://rubyhan-w251-hw3.s3.ca-central-1.amazonaws.com/face_10.png
 ![image](./face_10.png)
+
+- **AWS S3 console screenshot:**
+
+![image](./aws_s3_console.png)
 
 ## MQTT
 MQTT is a Client Server publish/subscribe messaging transport protocol. It is light weight, open, simple, and designed so as to be easy to implement. These characteristics make it ideal for use in many situations, including constrained environments such as for communication in Machine to Machine (M2M) and Internet of Things (IoT) contexts where a small code footprint is required and/or network bandwidth is at a premium.
