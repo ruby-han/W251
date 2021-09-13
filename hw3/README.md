@@ -117,6 +117,7 @@ docker run --network=host -d rubyhan/processor-ec2:ubuntu
 - **S3 bucket:** 
 
 https://rubyhan-w251-hw3.s3.ca-central-1.amazonaws.com/face_10.png
+
 - **Sample Image:**
 
 ![image](./face_10.png)
