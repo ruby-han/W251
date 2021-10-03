@@ -1,8 +1,12 @@
 # Fall 2021 W251 Homework 6 - GStreamer and Model Optimization
 
+## Files in Repo
+- `ssd` folder obtained and configured based on [source](https://github.com/dusty-nv/jetson-inference)
+- `listener.py` file contains python source code for Part 1 Question 4
+
 ## Part 1: GStreamer
 
-1. Convert the following sink to use nveglglessink.
+**1. Convert the following sink to use nveglglessink.**
 ```
 gst-launch-1.0 v4l2src device=/dev/video0 ! xvimagesink
 ```
@@ -12,14 +16,14 @@ gst-launch-1.0 v4l2src device=/dev/video0 ! xvimagesink
 gst-launch-1.0 v4l2src device=/dev/video0 ! nvvidconv ! nvegltransform ! nveglglessink -e
 ```
 
-2. What is the difference between a property and a capability? How are they each expressed in the pipeline?
+**2. What is the difference between a property and a capability? How are they each expressed in the pipeline?**
 
 **Answer:**
 A property is used to describe extra information for a capability and is used to modify or configure an element behavior, separated by spaces.
 
 A capability describes the type of data streamed between two pads (element's interface to the outside world), separated by commas.
 
-3. Explain the following pipeline, that is explain each piece of the pipeline, describing if it is an element (if so, what type), property, or capability. What does this pipeline do?
+**3. Explain the following pipeline, that is explain each piece of the pipeline, describing if it is an element (if so, what type), property, or capability. What does this pipeline do?**
 ```
 gst-launch-1.0 v4l2src device=/dev/video0 ! video/x-raw, framerate=30/1 ! videoconvert ! agingtv scratch-lines=10 ! videoconvert ! xvimagesink sync=false
 ```
@@ -37,7 +41,7 @@ gst-launch-1.0 v4l2src device=/dev/video0 ! video/x-raw, framerate=30/1 ! videoc
 - `xvimagesink`: Sink element that outputs video
 - `sync=false`: Property that pushes images to display immediately without sync-ing on the clock (higher CPU utilization)
 
-4. GStreamer pipelines may also be used from Python and OpenCV. Write a Python application that listens for images streamed from a Gstreamer pipeline ensuring that image displays in color.
+**4. GStreamer pipelines may also be used from Python and OpenCV. Write a Python application that listens for images streamed from a Gstreamer pipeline ensuring that image displays in color.**
 
 **Answer:**
 - Source code: `listener.py`
@@ -51,22 +55,22 @@ gst-launch-1.0 v4l2src device=/dev/video0 ! video/x-raw, framerate=30/1, width=6
 In Lab 6, we leveraged TensorRT with TensorFlow. For this exercise, we'll look at another way to leverage TensorRT with Pytorch via the Jetson Inference library.
 
 ### Setting up `jetson-inference` container 
-- [Source] (https://github.com/dusty-nv/jetson-inference/blob/master/docs/aux-docker.md)
+- [Source](https://github.com/dusty-nv/jetson-inference/blob/master/docs/aux-docker.md)
 
 ```
 $ git clone --recursive https://github.com/dusty-nv/jetson-inference
 $ cd jetson-inference
 $ docker/run.sh
 ```
-1. The base model used that was trained using Jetson device and Jetson Inference scripts:
+**1. The base model used that was trained using Jetson device and Jetson Inference scripts:**
 
 **Answer:**
 `mobilenet-v1-ssd-mp-0_675.pth`
 
 ### Train on fruit example 
-- [Source] (https://github.com/dusty-nv/jetson-inference/blob/master/docs/pytorch-ssd.md)
+- [Source](https://github.com/dusty-nv/jetson-inference/blob/master/docs/pytorch-ssd.md)
 
-2. A description of your dataset
+**2. A description of your dataset**
 
 **Answer:**
 `fruit` dataset was used with 8 classes of fruits.
@@ -155,26 +159,35 @@ $ python3 open_images_downloader.py --class-names "Apple,Orange,Banana,Strawberr
 python3 train_ssd.py --data=data/fruit --model-dir=models/fruit --batch-size=4 --epochs=30
 ```
 
-3. How long did it take to train the model, how many epochs were specified and batch size.
+```
+# Resume training checkpoint
+python3 train_ssd.py --data=data/fruit --model-dir=models/fruit  --resume=models/fruit/mb1-ssd-Epoch-23-Loss-3.6324344914358573.pth --batch-size=4 --epochs=30
+```
+
+**3. How long did it take to train the model, how many epochs were specified and batch size.**
 
 **Answer:**
 
 |   Edge Device   | Training Time | Number of Epochs | Batch Size |
 |-----------------|---------------|------------------|------------|
-| Jetson Nano 4GB | ~10 hrs       | 30               | 4          |
+| Jetson Nano 4GB | ~3 hrs        | 10               | 4          |
 
-4. Native Pytorch baseline
+This is an example of an image output based on the model:
+
+![image](ssd/data/fruit/test/fruit_XXX.jpg)
+
+**4. Native Pytorch baseline**
 
 ```
-python3 valid_ssd.py --data=data/fruit --model-dir=models/fruit --resume=models/fruit/mb1-ssd-Epoch-23-Loss-3.6324344914358573.pth --batch-size=4 --epoch=1
+python3 valid_ssd.py --data=data/fruit --model-dir=models/fruit --batch-size=4 --epoch=1
 ```
 
 **Answer:**
 
 `233it [00:56,  4.15it/s]`
-- 4.15 images/sec after a run on 233 images
+- 4.15 images/sec after a run on 930 images
 
-5. TensorRT performance numbers
+**5. TensorRT performance numbers**
 
 ### Converting the model to ONNX to be loaded with TensorRT
 ```
@@ -208,5 +221,5 @@ Pytorch model uses FP32 and TensorRT model uses FP16. Thus, the optimized model 
 **Answer:**
 
 - Total Images: 930
-- Total Time Taken: 
+- Total Time Taken: 589.5329377651215s
 - Images/sec:
