@@ -19,6 +19,7 @@ gst-launch-1.0 v4l2src device=/dev/video0 ! nvvidconv ! nvegltransform ! nveglgl
 **2. What is the difference between a property and a capability? How are they each expressed in the pipeline?**
 
 **Answer:**
+
 A property is used to modify or configure an element behavior, separated by spaces.
 
 A capability describes the type of data streamed between two pads (element's interface to the outside world), separated by commas.
@@ -65,6 +66,7 @@ $ docker/run.sh
 **1. The base model used that was trained using Jetson device and Jetson Inference scripts:**
 
 **Answer:**
+
 `mobilenet-v1-ssd-mp-0_675.pth`
 
 ### Train on fruit example 
@@ -73,6 +75,7 @@ $ docker/run.sh
 **2. A description of your dataset**
 
 **Answer:**
+
 `fruit` dataset was used with 8 classes of fruits.
 - Apple
 - Orange
@@ -85,13 +88,11 @@ $ docker/run.sh
 
 There are 6360 total images. The commands and statistics distribution for the train/validation/test datasets are displayed below:
 
-Check fruit dataset statistics:
 ```
 $ cd jetson-inference/python/training/detection/ssd
 $ python3 open_images_downloader.py --stats-only --class-names "Apple,Orange,Banana,Strawberry,Grape,Pear,Pineapple,Watermelon" --data=data/fruit
 ```
 
-Output:
 ```
 -------------------------------------
  'train' set statistics
