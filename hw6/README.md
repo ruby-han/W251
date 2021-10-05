@@ -175,7 +175,7 @@ python3 train_ssd.py --data=data/fruit --model-dir=models/fruit  --resume=models
 
 These are examples of image outputs based on the model:
 
-![image](ssd/data/fruit/test/fruit_310.jpg) ![image](ssd/data/fruit/test/fruit_325.jpg)
+![image](ssd/fruit_310.jpg) ![image](ssd/fruit_325.jpg)
 
 **4. Native Pytorch baseline**
 
