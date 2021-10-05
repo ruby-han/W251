@@ -19,7 +19,7 @@ gst-launch-1.0 v4l2src device=/dev/video0 ! nvvidconv ! nvegltransform ! nveglgl
 **2. What is the difference between a property and a capability? How are they each expressed in the pipeline?**
 
 **Answer:**
-A property is used to describe extra information for a capability and is used to modify or configure an element behavior, separated by spaces.
+A property is used to modify or configure an element behavior, separated by spaces.
 
 A capability describes the type of data streamed between two pads (element's interface to the outside world), separated by commas.
 
@@ -161,7 +161,7 @@ python3 train_ssd.py --data=data/fruit --model-dir=models/fruit --batch-size=4 -
 
 ```
 # Resume training checkpoint
-python3 train_ssd.py --data=data/fruit --model-dir=models/fruit  --resume=models/fruit/mb1-ssd-Epoch-23-Loss-3.6324344914358573.pth --batch-size=4 --epochs=30
+python3 train_ssd.py --data=data/fruit --model-dir=models/fruit  --resume=models/fruit/mb1-ssd-Epoch-28-Loss-3.7590008989424155.pth --batch-size=4 --epochs=30
 ```
 
 **3. How long did it take to train the model, how many epochs were specified and batch size.**
@@ -170,22 +170,28 @@ python3 train_ssd.py --data=data/fruit --model-dir=models/fruit  --resume=models
 
 |   Edge Device   | Training Time | Number of Epochs | Batch Size |
 |-----------------|---------------|------------------|------------|
-| Jetson Nano 4GB | ~3 hrs        | 10               | 4          |
+| Jetson Nano 4GB | ~10 hrs       | 30               | 4          |
 
-This is an example of an image output based on the model:
+These are examples of image outputs based on the model:
 
-![image](ssd/data/fruit/test/fruit_XXX.jpg)
+![image](ssd/data/fruit/test/fruit_310.jpg) ![image](ssd/data/fruit/test/fruit_325.jpg)
 
 **4. Native Pytorch baseline**
 
 ```
-python3 valid_ssd.py --data=data/fruit --model-dir=models/fruit --batch-size=4 --epoch=1
+# batch size = 1
+python3 valid_ssd.py --data=data/fruit --model-dir=models/fruit --resume=models/fruit/mb1-ssd-Epoch-28-Loss-3.7590008989424155.pth --batch-size=1 --epoch=1
+
+# batch size = 4
+python3 valid_ssd.py --data=data/fruit --model-dir=models/fruit --resume=models/fruit/mb1-ssd-Epoch-28-Loss-3.7590008989424155.pth --batch-size=4 --epoch=1
+
+# 233it [01:05,  3.58it/s]
 ```
 
 **Answer:**
 
-`233it [00:56,  4.15it/s]`
-- 4.15 images/sec after a run on 930 images
+`930it [01:17, 12.05it/s]`
+- 12.05 images/sec after a run on 930 images
 
 **5. TensorRT performance numbers**
 
@@ -199,9 +205,16 @@ This will save a model called `ssd-mobilenet.onnx` under `jetson-inference/pytho
 ```
 IMAGES=/jetson-inference/python/training/detection/ssd/data/fruit/test
 
+# save images
+# using /usr/local/bin/detectnet.py
 detectnet.py --model=models/fruit/ssd-mobilenet.onnx --labels=models/fruit/labels.txt \
           --input-blob=input_0 --output-cvg=scores --output-bbox=boxes \
             "$IMAGES/*.jpg" $IMAGES/test/fruit_%i.jpg
+            
+# use this command for faster runtime
+# does not save images
+# using /jetson-inference/python/training/detection/ssd/detectnet.py
+./detectnet.py --headless --model=models/fruit/ssd-mobilenet.onnx --labels=models/fruit/labels.txt --input-blob=input_0 --output-cvg=scores --output-bbox=boxes "$IMAGES/*.jpg"
 ```
 
 Pytorch model uses FP32 and TensorRT model uses FP16. Thus, the optimized model is quantized.
@@ -221,5 +234,5 @@ Pytorch model uses FP32 and TensorRT model uses FP16. Thus, the optimized model 
 **Answer:**
 
 - Total Images: 930
-- Total Time Taken: 589.5329377651215s
-- Images/sec:
+- Total Time Taken: 161.00596046447754
+- Images/sec: 5.776183672437297
