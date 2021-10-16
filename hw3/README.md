@@ -132,7 +132,7 @@ https://rubyhan-w251-hw3.s3.ca-central-1.amazonaws.com/face_10.png
 MQTT is a Client Server publish/subscribe messaging transport protocol. It is light weight, open, simple, and designed so as to be easy to implement. These characteristics make it ideal for use in many situations, including constrained environments such as for communication in Machine to Machine (M2M) and Internet of Things (IoT) contexts where a small code footprint is required and/or network bandwidth is at a premium.
 
 ### MQTT Topics 
-In MQTT, the word topic refers to an UTF-8 string that the broker uses to filter messages for each connected client. The topic `face_detection` was used in this assignment as it was self-explanatory in describing the face detecting sensors (USB camera and haarcascade_frontalface_default.xml). The topic is represented in both the publisher and subscriber codes.
+In MQTT, the word topic refers to a UTF-8 string that the broker uses to filter messages for each connected client. The topic `face_detection` was used in this assignment as it was self-explanatory in describing the face detecting sensors (USB camera and haarcascade_frontalface_default.xml). The topic is represented in both the publisher and subscriber codes.
 
 ### Quality of Service (QoS)
 The Quality of Service (QoS) level is an agreement between the sender of a message and the receiver of a message that defines the guarantee of delivery for a specific message. There are 
