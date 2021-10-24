@@ -68,6 +68,13 @@ train_loader = torch.utils.data.DataLoader(
         num_workers=WORKERS, pin_memory=True, sampler=torch.utils.data.distributed.DistributedSampler(train_dataset))
 ```
 
+```
+# val
+val_loader = torch.utils.data.DataLoader(
+        val_dataset, batch_size=VAL_BATCH, shuffle=False,
+        num_workers=WORKERS, pin_memory=True, sampler=torch.utils.data.distributed.DistributedSampler(val_dataset))
+```
+
 #### Initiate process group
 
 ```
@@ -139,13 +146,13 @@ wandb.log({'lr': scheduler.get_last_lr()[0]})
 nvidia-smi
 ```
 
+![image](images/image.png)
+
+
 ## Result
 
 |  Node  |  Time  |  Acc@1  |  Acc@5  |
 |--------|--------|---------|---------|
-|  Main  | CPU times: user 44min 15s, sys: 16min 13s, total: 1h 28s <br>  Wall time: 1h 16min 10s | 32.210 | 58.152 | 
-| Worker | CPU times: user 1h 43min 31s, sys: 36min 37s, total: 2h 20min 9s <br>  Wall time: 1h 16min 7s | 32.210 | 58.152|
+|  Main  | CPU times: user 1h 43min 25s, sys: 36min 31s, total: 2h 19min 57s <br>  Wall time: 1h 14min 47s | 32.204 | 58.120 | 
+| Worker | CPU times: user 45min 29s, sys: 16min 18s, total: 1h 1min 47s <br>  Wall time: 1h 14min 49s | 32.216 | 58.184|
 | Single | CPU times: user 1h 3min 42s, sys: 4min 36s, total: 1h 8min 18s <br> Wall time: 2h 24min 23s | 37.480 | 64.506 |
-
-![image](mAPresult.png) 
-
