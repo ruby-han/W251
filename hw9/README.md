@@ -66,11 +66,6 @@ model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[GPU])
 train_loader = torch.utils.data.DataLoader(
         train_dataset, batch_size=TRAIN_BATCH, shuffle=False,
         num_workers=WORKERS, pin_memory=True, sampler=torch.utils.data.distributed.DistributedSampler(train_dataset))
-
-#val
-val_loader = torch.utils.data.DataLoader(
-        val_dataset, batch_size=VAL_BATCH, shuffle=False,
-        num_workers=WORKERS, pin_memory=True, sampler=torch.utils.data.distributed.DistributedSampler(train_dataset)) 
 ```
 
 #### Initiate process group
@@ -146,11 +141,11 @@ nvidia-smi
 
 ## Result
 
-|  Node  | Time  |
-|--------|-------|
-|  Main  | CPU times: user 44min 40s, sys: 16min 2s, total: 1h 42s <br>  Wall time: 1h 21min 48s |
-| Worker | CPU times: user 1h 52min 7s, sys: 40min 54s, total: 2h 33min 2s <br>  Wall time: 1h 20min 39s |
-| Single | CPU times: user 1h 15min 11s, sys: 4min 20s, total: 1h 19min 32s <br> Wall time: 2h 40min 49s |
+|  Node  |  Time  |  Acc@1  |  Acc@5  |
+|--------|--------|---------|---------|
+|  Main  | CPU times: user 44min 15s, sys: 16min 13s, total: 1h 28s <br>  Wall time: 1h 16min 10s | 32.210 | 58.152 | 
+| Worker | CPU times: user 1h 43min 31s, sys: 36min 37s, total: 2h 20min 9s <br>  Wall time: 1h 16min 7s | 32.210 | 58.152|
+| Single | CPU times: user 1h 3min 42s, sys: 4min 36s, total: 1h 8min 18s <br> Wall time: 2h 24min 23s | 37.480 | 64.506 |
 
 ![image](mAPresult.png) 
 
