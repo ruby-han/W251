@@ -108,18 +108,6 @@ writer.close()
 <publicIP-node>:6006 
 ```
 
-Main:
-
-![image](images/trt_main_image.png)
-
-Worker:
-
-![image](images/trt_worker_image.png)
-
-Single:
-
-![image](images/trt_single_image.png)
-
 #### wandb.ai
 
 ```
