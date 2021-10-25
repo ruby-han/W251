@@ -108,6 +108,18 @@ writer.close()
 <publicIP-node>:6006 
 ```
 
+Main:
+
+![image](images/trt_main_image.png)
+
+Worker:
+
+![image](images/trt_worker_image.png)
+
+Single:
+
+![image](images/trt_single_image.png)
+
 #### wandb.ai
 
 ```
@@ -137,6 +149,18 @@ wandb.log({"Loss/train": loss, "acc1/train": top1.avg, "acc5/train": top5.avg
 wandb.log({"Loss/val": losses.avg, 'acc1/val': top1.avg, 'acc5/val': top5.avg})
 wandb.log({'lr': scheduler.get_last_lr()[0]})
 ```
+
+Main:
+
+![image](images/main_image.png)
+
+Worker:
+
+![image](images/worker_image.png)
+
+Single:
+
+![image](images/single_image.png)
 
 ### Command Line
 
