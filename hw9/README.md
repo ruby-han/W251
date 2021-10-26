@@ -183,6 +183,6 @@ nvidia-smi
 
 |  Node  |  Time  |  Acc@1  |  Acc@5  |
 |--------|--------|---------|---------|
-|  Main  | CPU times: user 1h 43min 25s, sys: 36min 31s, total: 2h 19min 57s <br>  Wall time: 1h 14min 47s | 32.204 | 58.120 | 
-| Worker | CPU times: user 45min 29s, sys: 16min 18s, total: 1h 1min 47s <br>  Wall time: 1h 14min 49s | 32.216 | 58.184|
+|  Main  | CPU times: user 1h 40min 53s, sys: 35min 38s, total: 2h 16min 31s <br>  Wall time: 1h 14min 39s | 32.632 | 58.672 | 
+| Worker | CPU times: user 46min 3s, sys: 17min 17s, total: 1h 3min 21s <br>  Wall time: 1h 14min 33s | 32.672 | 58.272 |
 | Single | CPU times: user 1h 3min 32s, sys: 4min 14s, total: 1h 7min 47s <br> Wall time: 2h 23min 5s | 36.948 | 63.722 |
