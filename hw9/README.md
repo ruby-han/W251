@@ -108,6 +108,24 @@ writer.close()
 <publicIP-node>:6006 
 ```
 
+Main:
+
+![image](images/main_trt_1.png)
+
+![image](images/main_trt_2.png)
+
+Worker:
+
+![image](images/worker_trt_1.png)
+
+![image](images/worker_trt_2.png)
+
+Single:
+
+![image](images/single_trt_1.png)
+
+![image](images/single_trt_2.png)
+
 #### wandb.ai
 
 ```
@@ -167,4 +185,4 @@ nvidia-smi
 |--------|--------|---------|---------|
 |  Main  | CPU times: user 1h 43min 25s, sys: 36min 31s, total: 2h 19min 57s <br>  Wall time: 1h 14min 47s | 32.204 | 58.120 | 
 | Worker | CPU times: user 45min 29s, sys: 16min 18s, total: 1h 1min 47s <br>  Wall time: 1h 14min 49s | 32.216 | 58.184|
-| Single | CPU times: user 1h 3min 42s, sys: 4min 36s, total: 1h 8min 18s <br> Wall time: 2h 24min 23s | 37.480 | 64.506 |
+| Single | CPU times: user 1h 3min 32s, sys: 4min 14s, total: 1h 7min 47s <br> Wall time: 2h 23min 5s | 37.480 | 64.506 |
