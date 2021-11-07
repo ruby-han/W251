@@ -2,20 +2,29 @@
 
 ## Videos
 
-### Training 0
+### Training Episode 0
 AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/episode0.mp4
 
 ![ep0](ep0.gif)
 
-### Training 200  
-AWS S3 Object Cloud Storage Link:
+### Training Episode 450  
+AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/episode450.mp4
 
-![gif](https://j.gifs.com/Pj7qOw.gif)
+![ep450](ep450.gif)
 
-### Test  
-AWS S3 Object Cloud Storage Link:
+### Training Episode 950  
+AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/episode950.mp4
 
-![gif](https://j.gifs.com/VvAzXM.gif)
+![ep950](ep950.gif)
+
+### Test  Episode 0 and 50
+AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/testing_run0.mp4
+
+AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/testing_run50.mp4
+
+![test_ep0](test_ep0.gif)
+
+![test_ep50](test_ep50.gif)
 
 ## Run Commands
 
@@ -233,9 +242,13 @@ sys     0m0.052s
 Components:
 
 Agent = Decision maker and learner
+
 State = State of the agent within the environment
+
 Reward = A reward is given for each action taken by the agent (usually a scalar value)
+
 Environment = Provides several states for the agent to choose from
+
 Action = A set of actions the agent is able to perform
 
 - Type of reinforcement learning using the Q-table in memory (states x action)
