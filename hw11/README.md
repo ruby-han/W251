@@ -5,26 +5,26 @@
 ### Training Episode 0
 AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/episode0.mp4
 
-![ep0](ep0.gif)
+![ep0](images/ep0.gif)
 
 ### Training Episode 450  
 AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/episode450.mp4
 
-![ep450](ep450.gif)
+![ep450](images/ep450.gif)
 
 ### Training Episode 950  
 AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/episode950.mp4
 
-![ep950](ep950.gif)
+![ep950](images/ep950.gif)
 
 ### Test  Episode 0 and 50
 AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/testing_run0.mp4
 
 AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/testing_run50.mp4
 
-![test_ep0](test_ep0.gif)
+![test_ep0](images/test_ep0.gif)
 
-![test_ep50](test_ep50.gif)
+![test_ep50](images/test_ep50.gif)
 
 ## Run Commands
 
@@ -237,7 +237,7 @@ sys     0m0.052s
 
 6. Describe "Q-Learning".
 
-![image](framework.png)
+![image](images/framework.png)
 
 Components:
 
