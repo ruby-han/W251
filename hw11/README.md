@@ -1,5 +1,22 @@
 # Fall 2021 W251 Homework 11 - Fun with OpenAI Gym!
 
+## Videos
+
+### Training 0
+AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/episode0.mp4
+
+![ep0](https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/episode0.mp4)
+
+### Training 200  
+AWS S3 Object Cloud Storage Link:
+
+![gif](https://j.gifs.com/Pj7qOw.gif)
+
+### Test  
+AWS S3 Object Cloud Storage Link:
+
+![gif](https://j.gifs.com/VvAzXM.gif)
+
 ## Run Commands
 
 ### Docker
