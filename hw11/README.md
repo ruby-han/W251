@@ -5,7 +5,7 @@
 ### Training 0
 AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/episode0.mp4
 
-![ep0](https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/episode0.mp4)
+![ep0](ep0.gif)
 
 ### Training 200  
 AWS S3 Object Cloud Storage Link:
