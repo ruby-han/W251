@@ -63,6 +63,8 @@ time docker run -it --rm --net=host --runtime nvidia  -e DISPLAY=$DISPLAY -v /tm
 
 - Updated `self.density_first_layer` to 512 (increases model ability to produce a solution to an increasingly complex problem)
 - Updated `self.density_second_layer` to 256 (increases model ability to produce a solution to an increasingly complex problem)
+- Updated `self.density_third_layer` to 256 (increases model ability to produce a solution to an increasingly complex problem)
+- Updated `self.density_fourth_layer` to 64 (increases model ability to produce a solution to an increasingly complex problem)
 - updated loss function `mean_absolute_error` (this metric better represents the cumulative reward system of the lunar landing reinforcement learning task)
 
 ```
@@ -70,7 +72,8 @@ time docker run -it --rm --net=host --runtime nvidia  -e DISPLAY=$DISPLAY -v /tm
         # Change these parameters to improve performance
         self.density_first_layer = 512 #16
         self.density_second_layer = 256 #8
-        # self.density_third_layer = 64
+        self.density_third_layer = 256
+        self.density_fourth_layer = 64
         self.num_epochs = 1
         self.batch_size = 64
         self.epsilon_min = 0.01
@@ -217,12 +220,12 @@ sys     0m0.052s
 
 3. Did your changes improve or degrade the model? How close did you get to a test run with 100% of the scores above 200?
 
-- Changes to density layers greatly improved the model
+- Changes to density and number of layers greatly improved the model
 - 96% tests with scores above 200 achieved
 
 4. Based on what you observed, what conclusions can you draw about the different parameters and their values?
 
-- Changes to the layers produced the greatest effect to account for model complexity
+- Changes to the density and number layers produced the greatest effect to account for model complexity
 - Changing the loss function from `mean_squared_error` to `mean_absolute_error` better represents the metric for this task
 - Additional nodes did not always increase model performance due to potential overfitting
 - The `relu` activation function is appropriate to use between layers
