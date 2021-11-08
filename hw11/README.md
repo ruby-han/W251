@@ -5,26 +5,26 @@
 ### Training Episode 0
 AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/episode0.mp4
 
-![ep0](images/ep0.gif)
+![gif](images/ep0.gif)
+
+### Training Episode 250  
+AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/episode250.mp4
+
+![gif](images/ep250.gif)
 
 ### Training Episode 450  
 AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/episode450.mp4
 
-![ep450](images/ep450.gif)
-
-### Training Episode 950  
-AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/episode950.mp4
-
-![ep950](images/ep950.gif)
+![gif](images/ep450.gif)
 
 ### Test  Episode 0 and 50
 AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/testing_run0.mp4
 
 AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/testing_run50.mp4
 
-![test_ep0](images/test_ep0.gif)
+![gif](images/test_ep0.gif)
 
-![test_ep50](images/test_ep50.gif)
+![gif](images/test_ep50.gif)
 
 ## Run Commands
 
@@ -71,9 +71,8 @@ time docker run -it --rm --net=host --runtime nvidia  -e DISPLAY=$DISPLAY -v /tm
         #######################
         # Change these parameters to improve performance
         self.density_first_layer = 512 #16
-        self.density_second_layer = 256 #8
+        self.density_second_layer = 512 #8
         self.density_third_layer = 256
-        self.density_fourth_layer = 64
         self.num_epochs = 1
         self.batch_size = 64
         self.epsilon_min = 0.01
@@ -97,25 +96,30 @@ Output:
 
 ```
 # train
-690     : Episode || Reward:  272.6041409671589         || Average Reward:  199.27637786061166   epsilon:  0.03131473892591842
+495     : Episode || Reward:  87.8425508409785  || Average Reward:  196.17831175833933   epsilon:  0.0832238973628649
 DQN Training Complete...
 
-real    101m58.933s
-user    0m0.748s
-sys     0m0.260s
+real    54m35.297s
+user    0m0.392s
+sys     0m0.212s
 
 # test
-95  : Episode || Reward:  281.39401539230016
-96  : Episode || Reward:  225.6414280921844
-97  : Episode || Reward:  241.62778970255914
-98  : Episode || Reward:  25.160950406303883
-99  : Episode || Reward:  43.33566700013424
-Average Reward:  250.00873026995134
-Total tests above 200:  96
+90      : Episode || Reward:  259.05119610428477
+91      : Episode || Reward:  274.41323362502595
+92      : Episode || Reward:  326.4593589160079
+93      : Episode || Reward:  241.63488513628266
+94      : Episode || Reward:  287.4670208808213
+95      : Episode || Reward:  240.206093200603
+96      : Episode || Reward:  307.63723525774935
+97      : Episode || Reward:  315.5974633603962
+98      : Episode || Reward:  260.9025100331868
+99      : Episode || Reward:  317.0788894013589
+Average Reward:  233.87479791212473
+Total tests above 200:  85
 
-real    5m31.766s
-user    0m0.100s
-sys 0m0.080s
+real    5m4.336s
+user    0m0.104s
+sys     0m0.084s
 ```
 
 2. Did you try any other changes (like adding layers or changing the epsilon value) that made things better or worse?
