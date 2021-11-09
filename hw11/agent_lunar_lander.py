@@ -29,8 +29,8 @@ class DQN:
         #######################
         # Change these parameters to improve performance
         self.density_first_layer = 512 #16
-        self.density_second_layer = 512 #8
-        self.density_third_layer = 256
+        self.density_second_layer = 256 #8
+        # self.density_third_layer = 256
         # self.density_fourth_layer = 64
         self.num_epochs = 1
         self.batch_size = 64
@@ -60,12 +60,12 @@ class DQN:
         model = Sequential()
         model.add(Dense(self.density_first_layer, input_dim=self.num_observation_space, activation=relu))
         model.add(Dense(self.density_second_layer, activation=relu))
-        model.add(Dense(self.density_third_layer, activation=relu))
+        # model.add(Dense(self.density_third_layer, activation=relu))
         # model.add(Dense(self.density_fourth_layer, activation=relu))
         model.add(Dense(self.num_action_space, activation=linear))
 
         # Compile the model
-        model.compile(loss=mean_squared_error,optimizer=Adam(lr=self.lr))
+        model.compile(loss=mean_absolute_error,optimizer=Adam(lr=self.lr))
         print(model.summary())
         return model
 

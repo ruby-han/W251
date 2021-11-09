@@ -12,17 +12,18 @@ AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amaz
 
 ![gif](images/ep250.gif)
 
-### Training Episode 450  
+### Training Episode 550  
 AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/episode450.mp4
 
 ![gif](images/ep450.gif)
 
-### Test  Episode 0 and 50
+### Test  Episode 0
 AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/testing_run0.mp4
 
-AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/testing_run50.mp4
-
 ![gif](images/test_ep0.gif)
+
+### Test  Episode 50
+AWS S3 Object Cloud Storage Link: https://rubyhan-w251-hw11.s3.ca-central-1.amazonaws.com/testing_run50.mp4
 
 ![gif](images/test_ep50.gif)
 
@@ -62,17 +63,14 @@ time docker run -it --rm --net=host --runtime nvidia  -e DISPLAY=$DISPLAY -v /tm
 1. What parameters did you change, and what values did you use?
 
 - Updated `self.density_first_layer` to 512 (increases model ability to produce a solution to an increasingly complex problem)
-- Updated `self.density_second_layer` to 256 (increases model ability to produce a solution to an increasingly complex problem)
-- Updated `self.density_third_layer` to 256 (increases model ability to produce a solution to an increasingly complex problem)
-- Updated `self.density_fourth_layer` to 64 (increases model ability to produce a solution to an increasingly complex problem)
+- Updated `self.density_second_layer` to 512 (increases model ability to produce a solution to an increasingly complex problem)
 - updated loss function `mean_absolute_error` (this metric better represents the cumulative reward system of the lunar landing reinforcement learning task)
 
 ```
         #######################
         # Change these parameters to improve performance
         self.density_first_layer = 512 #16
-        self.density_second_layer = 512 #8
-        self.density_third_layer = 256
+        self.density_second_layer = 256 #8
         self.num_epochs = 1
         self.batch_size = 64
         self.epsilon_min = 0.01
@@ -96,30 +94,30 @@ Output:
 
 ```
 # train
-495     : Episode || Reward:  87.8425508409785  || Average Reward:  196.17831175833933   epsilon:  0.0832238973628649
+567     : Episode || Reward:  234.78918059682837        || Average Reward:  196.22235710494454   epsilon:  0.058010934765067
 DQN Training Complete...
 
-real    54m35.297s
-user    0m0.392s
-sys     0m0.212s
+real    63m45.837s
+user    0m0.540s
+sys     0m0.172s
 
 # test
-90      : Episode || Reward:  259.05119610428477
-91      : Episode || Reward:  274.41323362502595
-92      : Episode || Reward:  326.4593589160079
-93      : Episode || Reward:  241.63488513628266
-94      : Episode || Reward:  287.4670208808213
-95      : Episode || Reward:  240.206093200603
-96      : Episode || Reward:  307.63723525774935
-97      : Episode || Reward:  315.5974633603962
-98      : Episode || Reward:  260.9025100331868
-99      : Episode || Reward:  317.0788894013589
-Average Reward:  233.87479791212473
-Total tests above 200:  85
+90      : Episode || Reward:  262.5103774708176
+91      : Episode || Reward:  300.19157960100347
+92      : Episode || Reward:  270.4908193979038
+93      : Episode || Reward:  265.79679681673616
+94      : Episode || Reward:  220.37528842296402
+95      : Episode || Reward:  277.8786124898262
+96      : Episode || Reward:  299.3427106062927
+97      : Episode || Reward:  137.22583035384312
+98      : Episode || Reward:  261.8891457590109
+99      : Episode || Reward:  288.68647076964317
+Average Reward:  251.26723805821695
+Total tests above 200:  90
 
-real    5m4.336s
-user    0m0.104s
-sys     0m0.084s
+real    5m2.586s
+user    0m0.116s
+sys     0m0.072s
 ```
 
 2. Did you try any other changes (like adding layers or changing the epsilon value) that made things better or worse?
@@ -224,12 +222,12 @@ sys     0m0.052s
 
 3. Did your changes improve or degrade the model? How close did you get to a test run with 100% of the scores above 200?
 
-- Changes to density and number of layers greatly improved the model
-- 96% tests with scores above 200 achieved
+- Changes to density layers greatly improved the model
+- 90% tests with scores above 200 achieved
 
 4. Based on what you observed, what conclusions can you draw about the different parameters and their values?
 
-- Changes to the density and number layers produced the greatest effect to account for model complexity
+- Changes to the density layers produced the greatest effect to account for model complexity
 - Changing the loss function from `mean_squared_error` to `mean_absolute_error` better represents the metric for this task
 - Additional nodes did not always increase model performance due to potential overfitting
 - The `relu` activation function is appropriate to use between layers
