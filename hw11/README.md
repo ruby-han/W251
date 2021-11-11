@@ -64,7 +64,7 @@ time docker run -it --rm --net=host --runtime nvidia  -e DISPLAY=$DISPLAY -v /tm
 
 - Updated `self.density_first_layer` to 512 (increases model ability to produce a solution to an increasingly complex problem)
 - Updated `self.density_second_layer` to 256 (increases model ability to produce a solution to an increasingly complex problem)
-- updated loss function `mean_absolute_error` (this metric better represents the cumulative reward system of the lunar landing reinforcement learning task)
+- Updated loss function `mean_absolute_error` (this metric better represents the cumulative reward system of the lunar landing reinforcement learning task)
 
 ```
         #######################
