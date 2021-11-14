@@ -260,5 +260,5 @@ Action = A set of actions the agent is able to perform
 - Each state-action has a corresponding Q-value (reward)
 - Seeks to determine best action given current state
 - Seeks to learn a policy that maximizes the total reward
-- The environment provides multiple states for the agent select and is rewarded based on its action
+- The environment provides multiple states for the agent to select and is rewarded based on its action
 - The agent is trained to maximize rewards
