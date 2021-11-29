@@ -59,7 +59,7 @@ LibriSpeech-train and Mozillas Common Voice datasets.
 
 1. What is the size of the dataset?
 
-214
+64,721
 
 2. How many parameters does the model have?
 
@@ -67,4 +67,4 @@ LibriSpeech-train and Mozillas Common Voice datasets.
 
 3. How long does it take to fine tune?
 
-20sec
+27.5 s
