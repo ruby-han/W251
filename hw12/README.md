@@ -63,7 +63,7 @@ LibriSpeech-train and Mozillas Common Voice datasets.
 
 2. How many parameters does the model have?
 
-77.2K
+77.2 K
 
 3. How long does it take to fine tune?
 
